@@ -14,8 +14,8 @@ import jakarta.persistence.LockModeType;
 @Repository
 public interface LectureInfoRepository extends JpaRepository<LectureInfo, Long> {
 
-	@Lock(LockModeType.PESSIMISTIC_WRITE)
-	@Query("SELECT l FROM LectureInfo l WHERE l.lectureId = :lectureId")
+    @Lock(LockModeType.PESSIMISTIC_WRITE)
+    @Query("SELECT l FROM LectureInfo l WHERE l.lectureId = :lectureId")
     Optional<LectureInfo> findByLectureIdWithWriteLock(@Param("lectureId") Long lectureId);
 
 
